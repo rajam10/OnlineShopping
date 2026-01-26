@@ -23,4 +23,12 @@ router.post('/login', async (req, res, next) => {
   }
 });
 
+router.post('/verify-email', (req, res) => {
+  try {
+  controller.verifyEmail(req, res);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
 exports.authRoutes = router;

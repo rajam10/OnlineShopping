@@ -1,0 +1,2 @@
+ALTER TABLE user
+ADD is_verified TINYINT(1) DEFAULT 0;

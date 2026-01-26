@@ -95,6 +95,25 @@ CREATE TABLE payments (
 
   FOREIGN KEY (order_id) REFERENCES orders(id)
 );
+
+CREATE TABLE user_otps (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  user_id BIGINT NOT NULL,
+  otp_hash VARCHAR(255) NOT NULL,
+  purpose ENUM('EMAIL_VERIFICATION', 'PASSWORD_RESET') NOT NULL,
+  expires_at DATETIME NOT NULL,
+  is_used TINYINT(1) DEFAULT 0,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+  CONSTRAINT fk_user_otp
+    FOREIGN KEY (user_id)
+    REFERENCES users(id)
+    ON DELETE CASCADE
+);
+
+ALTER TABLE users
+ADD is_verified TINYINT(1) DEFAULT 0;
+
 CREATE INDEX idx_users_email ON users(email);
 CREATE INDEX idx_products_price ON products(price);
 CREATE INDEX idx_orders_user ON orders(user_id);
