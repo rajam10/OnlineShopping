@@ -1,4 +1,4 @@
-const userRepo = require('../respository/userRepo');
+const userRepo = require('../repository/userRepo');
 const bcrypt = require('bcrypt');
 
 const generateOtp = () =>
