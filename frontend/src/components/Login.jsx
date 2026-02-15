@@ -1,12 +1,24 @@
+import { TextField } from '@mui/material'
+
 const Login = ()=>{
     return (
         <form className="login-form">
           <label id="email-lbl" style={{textAlign: "left"}}>Email Address</label>
-          <input id="email" type="email" placeholder="name@example.com" />
-
+          <TextField
+          id="outlined-password-input"
+          type="text"
+          autoComplete="current-password"
+          size="small"
+           placeholder="Enter email here"
+        />
           <div style={{display:"flex",flexDirection:"row", justifyContent:"space-between"}}><label id="pwd-lbl">Password</label><a href="#">Forgot password?</a></div>
-          <input id="password" type="password" placeholder="abcd@123" autoComplete="off" />
-
+          <TextField
+            id="outlined-password-input"
+            type="password"
+            autoComplete="current-password"
+            size="small"
+            placeholder="Enter password here"
+          />
           <div className="options">
             {/* <label>
               <input type="checkbox" /> Remember me for 30 days
